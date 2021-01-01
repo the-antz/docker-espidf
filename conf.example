@@ -1,0 +1,12 @@
+# Tag for the docker image.
+IMAGE="espidf:4.2"
+
+# Your project folder.
+# Gets bind-mounted into the container.
+PROJECT_DIR="projects"
+
+# Group id of your hosts dialout group
+# Required if you want to flash your device from within the container.
+# The container user 'user' is in the container group host_dialout which gets its gid set to
+# what you specify here by the entrypoint.
+HOST_DIALOUT_ID=$(getent group dialout | awk '{split($0,a,":"); print a[3]}')
