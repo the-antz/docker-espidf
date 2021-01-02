@@ -6,6 +6,7 @@ The stuff usually installed by running `esp-idf/install.sh` is compiled from sou
 
 A small patch is applied to `esp-idf/tools/idf_tools.py` to make it work on ppc64le.
 
+For prebuild images, see [https://hub.docker.com/r/theantz/espidf](https://hub.docker.com/r/theantz/espidf).
 
 ## build
 
