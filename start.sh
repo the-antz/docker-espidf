@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+# parse args
 if [ $# -ge 1 ]; then
 	if [ $# -gt 1 ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]; then
 		echo "\nExample usage:\n"
@@ -11,7 +12,12 @@ if [ $# -ge 1 ]; then
 	DEVICE="$1"
 fi
 
-. ./conf
+# load config
+if [ -r "./conf" ]; then
+	. ./conf
+else
+	. ./conf.default
+fi
 
 ERR_MSG=""
 [ -z "$IMAGE" ] && ERR_MSG='IMAGE not set.'
@@ -27,8 +33,8 @@ fi
 
 PROJECT_DIR="$(realpath "$PROJECT_DIR")"
 
-CMD="docker run --rm -it --name espidf -v ${PROJECT_DIR}:/home/user/projects"
-[ -n "$DEVICE" ] && CMD="$CMD --device=${DEVICE} -e HOST_DIALOUT_ID=${HOST_DIALOUT_ID}"
-CMD="$CMD $IMAGE"
-echo "$CMD"
-$CMD
+CMD1="docker run --rm -it --name espidf"
+CMD3=""
+[ -n "$DEVICE" ] && CMD3="--device=${DEVICE} -e HOST_DIALOUT_ID=${HOST_DIALOUT_ID}"
+echo $CMD1 -v "${PROJECT_DIR}:/home/user/projects" $CMD3 $IMAGE
+$CMD1 -v "${PROJECT_DIR}:/home/user/projects" $CMD3 $IMAGE

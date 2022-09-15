@@ -1,14 +1,14 @@
---- idf_tools.py	2021-01-01 02:29:19.850422647 +0100
-+++ ../../idf_tools.py	2021-01-01 02:28:38.522695701 +0100
-@@ -98,6 +98,7 @@
- PLATFORM_LINUX64 = 'linux-amd64'
+--- idf_tools.py	2022-09-16 22:45:45.237014719 +0200
++++ idf_tools.py.new	2022-09-16 22:47:03.514056117 +0200
+@@ -102,6 +102,7 @@
  PLATFORM_LINUX_ARM32 = 'linux-armel'
+ PLATFORM_LINUX_ARMHF = 'linux-armhf'
  PLATFORM_LINUX_ARM64 = 'linux-arm64'
 +PLATFORM_LINUX_PPC64LE = "linux-ppc64le"
  
  
  # Mappings from various other names these platforms are known as, to the identifiers above.
-@@ -131,6 +132,8 @@
+@@ -140,6 +141,8 @@
      'Linux-arm64': PLATFORM_LINUX_ARM64,
      'Linux-aarch64': PLATFORM_LINUX_ARM64,
      'Linux-armv8l': PLATFORM_LINUX_ARM64,

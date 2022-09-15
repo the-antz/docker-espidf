@@ -1,5 +1,5 @@
 # Tag for the docker image.
-IMAGE="espidf:4.2"
+IMAGE="espidf:4.4.2"
 
 # Your project folder.
 # Gets bind-mounted into the container.

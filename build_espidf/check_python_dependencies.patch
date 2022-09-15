@@ -1,0 +1,11 @@
+--- check_python_dependencies.py	2022-09-16 23:12:46.000000000 +0200
++++ check_python_dependencies.py.new	2022-09-16 23:36:16.692697257 +0200
+@@ -46,6 +46,8 @@
+                 line = os.path.basename(line)
+             if line.startswith('--only-binary'):
+                 continue
++            if line.startswith('--no-binary'):
++                continue
+             if line.startswith('-e') and '#egg=' in line:  # version control URLs, take the egg= part at the end only
+                 line = re.search(r'#egg=([^\s]+)', line).group(1)  # type: ignore
+             try:

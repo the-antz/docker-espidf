@@ -1,0 +1,12 @@
+--- requirements.txt.old	2022-09-16 22:27:23.276827134 +0200
++++ requirements.txt	2022-09-16 22:29:19.410893877 +0200
+@@ -10,7 +10,8 @@
+ future>=0.15.2
+ 
+ cryptography>=2.1.4
+---only-binary cryptography
++--no-binary cryptography
++# Switched to --no-binary to compile this from source. There are no binaries for ppc64le.
+ # Only binary for cryptography is here to make it work on ARMv7 architecture
+ # We do have cryptography binary on https://dl.espressif.com/pypi for ARM
+ # On https://pypi.org/ are no ARM binaries as standard now
